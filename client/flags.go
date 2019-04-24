@@ -42,7 +42,7 @@ const (
 // GetCommands adds common flags to query commands
 func GetCommands(cmds ...*cobra.Command) []*cobra.Command {
 	for _, c := range cmds {
-		c.Flags().Bool(FlagIndentResponse, false, "Add indent to JSON response")
+		c.Flags().Bool(FlagIndentResponse, true, "Add indent to JSON response")
 		c.Flags().Bool(FlagTrustNode, true, "Don't verify proofs for responses")
 		c.Flags().Bool(FlagUseLedger, false, "Use a connected Ledger device")
 		c.Flags().String(FlagChainID, "", "Chain ID of tendermint node")

@@ -45,18 +45,7 @@ func GetAccountCmd(cdc *codec.Codec, decoder auth.AccountDecoder) *cobra.Command
 				return err
 			}
 
-			accountRes, err := bank.ConvertAccountCoin(cliCtx, acc)
-			if err != nil {
-				return err
-			}
-
-			output, err := codec.MarshalJSONIndent(cdc, accountRes)
-			if err != nil {
-				return err
-			}
-
-			fmt.Println(string(output))
-			return nil
+			return cliCtx.PrintOutput(acc)
 		},
 	}
 }
